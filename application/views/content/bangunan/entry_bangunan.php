@@ -1,0 +1,570 @@
+<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<h3 class="page-title">
+			Entry Data IMB
+			</h3>
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="portlet box blue" id="form_wizard_1">
+						
+						<div class="portlet-body form">
+							<form class="form-horizontal submit_form" id="submit_form">
+								<div class="form-wizard">
+									<div class="form-body">
+										<ul class="nav nav-pills nav-justified steps">
+											<li>
+												<a href="#tab1" data-toggle="tab" class="step">
+												<span class="number">
+												1 </span>
+												<span class="desc">
+												<i class="fa fa-check"></i> Status Kepemilikan Tanah </span>
+												</a>
+											</li>
+											<li>
+												<a href="#tab2" data-toggle="tab" class="step">
+												<span class="number">
+												2 </span>
+												<span class="desc">
+												<i class="fa fa-check"></i> Status Bangunan </span>
+												</a>
+											</li>
+											<li>
+												<a href="#tab3" data-toggle="tab" class="step active">
+												<span class="number">
+												3 </span>
+												<span class="desc">
+												<i class="fa fa-check"></i> Lampiran Bangunan </span>
+												</a>
+											</li>
+										</ul>
+										<div id="bar" class="progress progress-striped" role="progressbar">
+											<div class="progress-bar progress-bar-success">
+											</div>
+										</div>
+										<div class="tab-content">
+											<div class="alert alert-danger display-none">
+												<button class="close" data-dismiss="alert"></button>
+												You have some form errors. Please check below.
+											</div>
+											<div class="alert alert-success display-none">
+												<button class="close" data-dismiss="alert"></button>
+												Your form validation is successful!
+											</div>
+											<!-- status kepemilikian tanah, milik sendiri-->
+											<div class="tab-pane active" id="tab1">
+												<!-- <hr/> -->
+												<!-- <div class="form-group">
+													<label class="control-label col-md-2">Status Kepemilikan</label>
+													<div class="col-md-4">
+														<select name="" class="form-control" id="status-milik">
+															<option value="">-- Pilih Status Kepemilikan --</option>
+															<option value="1">Milik Sendiri</option>
+															<option value="2">Sewa Kontrak</option>
+														</select>
+													</div>
+												</div> -->
+												<!-- <hr/> -->
+
+												<section id="milik-sendiri">
+													<div class="row">
+														<div class="col-md-6 col-xs-12">
+															<h3 class="block"><strong>Milik Sendiri</strong></h3>
+															<hr/>
+															<div class="form-group">
+																<label class="control-label col-md-5">Peruntukan Tanah </label>
+																<div class="col-md-7">
+																	<select class="form-control" name="peruntukan_tanah">
+																		<option value="">-- Pilih Peruntukan Tanah --</option>
+																		<?php foreach ($peruntukan_tanah as $item): ?>
+																			<option value="<?php echo $item['id'] ?>"><?php echo $item['nama'] ?></option>
+																		<?php endforeach ?>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">Peruntukan Ruang </label>
+																<div class="col-md-7">
+																	<select class="form-control" name="peruntukan_ruang">
+																		<option value="">-- Pilih Peruntukan Ruang --</option>
+																		<?php foreach ($peruntukan_ruang as $item): ?>
+																			<option value="<?php echo $item['id'] ?>"><?php echo $item['nama'] ?></option>
+																		<?php endforeach ?>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">No. Hak Kepemilikan Tanah </label>
+																<div class="col-md-7">
+																	<input type="text" class="form-control" name="a1a1"/>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">Nama Pemilik </label>
+																<div class="col-md-7">
+																	<input type="text" class="form-control" name="a1a2"/>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">No. Telepon Pemohon / Pemilik </label>
+																<div class="col-md-7">
+																	<input type="tel" class="form-control" name="a1a9"/>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">Alamat </label>
+																<div class="col-md-7">
+																	<textarea class="form-control" rows="3" name="a1a3"></textarea>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">RT </label>
+																<div class="col-md-3">
+																	<input type="text" class="form-control" name="a1a4"/>
+																</div>
+
+																<label class="control-label col-md-1">RW </label>
+																<div class="col-md-3">
+																	<input type="text" class="form-control" name="a1a5"/>
+																</div>
+															</div>
+															
+															<div class="form-group">
+																<label class="control-label col-md-5">Kelurahan </label>
+																<div class="col-md-7">
+																	<input type="text" class="form-control" name="a1a6"/>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">Kecamatan </label>
+																<div class="col-md-7">
+																	<input type="text" class="form-control" name="a1a7"/>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">Kota / Kabupaten </label>
+																<div class="col-md-7">
+																	<input type="text" class="form-control" name="a1a8"/>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-6 col-xs-12">
+															<h3 class="block"><strong>Sewa Kontrak</strong></h3>
+															<hr/>
+															<div class="form-group">
+																<label class="control-label col-md-5">Nama Pemilik Asli </label>
+																<div class="col-md-7">
+																	<input type="text" class="form-control" name="a1b1"/>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">Alamat Pemilik Asli </label>
+																<div class="col-md-7">
+																	<textarea class="form-control" rows="3" name="a1b2"></textarea>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">Nama Penyewa </label>
+																<div class="col-md-7">
+																	<input type="text" class="form-control" name="a1b3"/>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label col-md-5">Alamat Penyewa </label>
+																<div class="col-md-7">
+																	<textarea class="form-control" rows="3" name="a1b4"></textarea>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+
+											</div>
+											<div class="tab-pane" id="tab2">
+												<h3 class="block"><strong>Status Bangunan</strong></h3>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-2">Kecamatan </label>
+													<div class="col-md-3">
+														<!-- <input type="text" class="form-control" name="a26"/> -->
+														<select name="a26" class="form-control" id="kecamatan">
+															<option value="">-- Pilih Kecamatan --</option>
+															<?php foreach ($kecamatan as $item): ?>
+																<option value="<?php echo $item['nomor'] ?>"><?php echo $item['kecamatan'] ?></option>
+															<?php endforeach ?>
+														</select>
+													</div>
+
+													<label class="control-label col-md-3">Tahun Bangunan Berdiri </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="tahun_bangunan_berdiri"/>
+													</div>	
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">Kelurahan </label>
+													<div class="col-md-3">
+														<!-- <input type="text" class="form-control" name="a25"/> -->
+														<select name="a25" class="form-control" id="kelurahan">
+															
+														</select>
+													</div>
+
+													<label class="control-label col-md-3">No. IMB </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="no_imb"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">Nomor </label>
+													<div class="col-md-3">
+													<input type="text" class="form-control" name="nomor" id="nomor" readonly />
+													</div>
+
+													<label class="control-label col-md-3">No. IPR </label>
+													<div class="col-md-3">
+													<input type="text" class="form-control" name="no_ipr" />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">Nama Pemohon </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a21"/>
+													</div>
+
+													<label class="control-label col-md-3">Cagar Budaya</label>
+													<div class="col-md-3">
+														<div class="radio-list">
+															<label>
+															<input type="radio" name="cagar_budaya" value="YA" data-title="Ya"/>
+															Ya </label>
+															<label>
+															<input type="radio" name="cagar_budaya" value="TIDAK" data-title="Tidak"/>
+															Tidak </label>
+														</div>
+														<div id="form_gender_error">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">Alamat Bangunan </label>
+													<div class="col-md-3">
+														<textarea class="form-control" rows="3" name="a22"></textarea>
+													</div>
+
+													<label class="control-label col-md-3">Tahun Terbit IMB </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a212"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">RT </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a23"/>
+													</div>
+
+													<label class="control-label col-md-3">Luas Bangunan Lantai Dasar </label>
+													<div class="col-md-2">
+														<input type="text" class="form-control" name="a213"/>
+													</div>
+												</div>
+												<div class="form-group">
+													
+
+													<label class="control-label col-md-2">RW </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a24"/>
+													</div>
+
+													<label class="control-label col-md-3">Jumlah Lantai Bangunan </label>
+													<div class="col-md-2">
+														<input type="number" min="1" class="form-control" name="a214"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">Kota / Kabupaten </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a27"/>
+													</div>
+
+													<label class="control-label col-md-3">Peruntukan / Penggunaan Bangunan </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a215"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">No. Telepon Pemohon </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a28"/>
+													</div>
+
+													<!-- <label class="control-label col-md-3">Tanggal </label>
+													<div class="col-md-3">
+														<input type="date" class="form-control" name="tanggal"/>
+													</div> -->
+													<label class="control-label col-md-3">Tanggal</label>
+													<div class="col-md-3">
+														<div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
+															<input type="text" class="form-control" readonly name="tanggal">
+															<span class="input-group-btn">
+															<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+															</span>
+														</div>
+														<!-- /input-group -->
+														<span class="help-block">
+														Pilih Tanggal </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">Jangka Waktu Sewa </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a29"/>
+													</div>
+
+													<label class="control-label col-md-3">Surveyor </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="surveyor"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">Perijinan yang Dimiliki </label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="a210"/>
+													</div>
+
+													<!-- <label class="control-label col-md-3">Tanggal Selesai Input</label>
+													<div class="col-md-3">
+														<input type="date" class="form-control" name="tanggal_selesai_input"/>
+													</div> -->
+													<label class="control-label col-md-3">Tanggal Selesai Input</label>
+													<div class="col-md-3">
+														<div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
+															<input type="text" class="form-control" readonly name="tanggal_selesai_input">
+															<span class="input-group-btn">
+															<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+															</span>
+														</div>
+														<!-- /input-group -->
+														<span class="help-block">
+														Pilih Tanggal </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-2">IMB</label>
+													<div class="col-md-3">
+														<div class="radio-list">
+															<label>
+															<input type="radio" name="a211" value="YA" data-title="Ya"/>
+															Ya </label>
+															<label>
+															<input type="radio" name="a211" value="TIDAK" data-title="Tidak"/>
+															Tidak </label>
+														</div>
+														<div id="form_gender_error">
+														</div>
+													</div>
+
+													<label class="control-label col-md-3">Biaya Retribusi</label>
+													<div class="col-md-3">
+														<input type="text" class="form-control" name="biaya_retribusi"/>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="tab3">
+												<h3 class="block">Lampiran Bangunan </h3>
+												<hr/>
+
+												<label class="control-label"><strong>Identitas Pemohon</strong></label>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-3">Pemohon Perorangan </label>
+													<div class="col-md-4">
+														<input type="file" name="b1a">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Pemohon Badan / Yayasan </label>
+													<div class="col-md-4">
+														<input type="file" name="b1b">
+														</span>
+													</div>
+												</div>
+												<hr/>
+
+												<label class="control-label"><strong>Pajak Bumi & Bangunan</strong></label>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-3">Pemohon Perorangan </label>
+													<div class="col-md-4">
+														<input type="file" name="b2">
+														</span>
+													</div>
+												</div>
+												<hr/>
+
+												<label class="control-label"><strong>Status Kepemilikan Tanah</strong></label>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-3">FC Sertifikat </label>
+													<div class="col-md-4">
+														<input type="file" name="b3a">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Perolehan Tahun </label>
+													<div class="col-md-4">
+														<input type="file" name="b3b">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">IMB </label>
+													<div class="col-md-4">
+														<input type="file" name="imb">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Gambar Denah Lokasi / Ancer-ancer </label>
+													<div class="col-md-4">
+														<input type="file" name="b4a">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Gambar Situasi </label>
+													<div class="col-md-4">
+														<input type="file" name="b4b">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Gambar Denah Bangunan </label>
+													<div class="col-md-4">
+														<input type="file" name="b4c">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Gambar Depan & Samping </label>
+													<div class="col-md-4">
+														<input type="file" name="b4d">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Gambar Potongan Membujur & Melintang </label>
+													<div class="col-md-4">
+														<input type="file" name="b4e">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Gambar Detail Septictank </label>
+													<div class="col-md-4">
+														<input type="file" name="b4f">
+														</span>
+													</div>
+												</div>
+												<hr/>
+
+												<label class="control-label"><strong>Kelengkapan Perhitungan Konstruksi Beton</strong></label>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-3">Kelengkapan Beton </label>
+													<div class="col-md-4">
+														<input type="file" name="b5">
+														</span>
+													</div>
+												</div>
+												<hr/>
+
+												<label class="control-label"><strong>Kelengkapan Perhitungan Konstruksi Baja</strong></label>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-3">Kelengkapan Baja </label>
+													<div class="col-md-4">
+														<input type="file" name="b6">
+														</span>
+													</div>
+												</div>
+												<hr/>
+
+												<label class="control-label"><strong>Permohonan Non Rumah Tinggal</strong></label>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-3">Permohonan dari BLH </label>
+													<div class="col-md-4">
+														<input type="file" name="b7a">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Permohonan dari ANDALAN </label>
+													<div class="col-md-4">
+														<input type="file" name="b7b">
+														</span>
+													</div>
+												</div>
+												<hr/>
+
+												<label class="control-label"><strong>Foto Rumah</strong></label>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-3">Foto Bangunan </label>
+													<div class="col-md-4">
+														<input type="file" name="b81">
+														</span>
+													</div>
+												</div>
+												<hr/>
+
+												<label class="control-label"><strong>Arsip</strong></label>
+												<hr/>
+												<div class="form-group">
+													<label class="control-label col-md-3">Arsip IMB Baru </label>
+													<div class="col-md-4">
+														<input type="file" name="arsip">
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Catatan</label>
+													<div class="col-md-4">
+														<textarea class="form-control" rows="3" name="catatan"></textarea>
+														<span class="help-block">
+														</span>
+													</div>
+												</div>
+												<hr/>
+
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<div class="row">
+											<div class="col-md-offset-3 col-md-9">
+												<a href="javascript:;" class="btn default button-previous">
+												<i class="m-icon-swapleft"></i> Sebelumnya </a>
+												<a href="javascript:;" class="btn blue button-next">
+												Simpan & Lanjutkan <i class="m-icon-swapright m-icon-white"></i>
+												</a>
+												<button class="btn green button-submit" type="submit">
+												Simpan <i class="m-icon-swapright m-icon-white"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
