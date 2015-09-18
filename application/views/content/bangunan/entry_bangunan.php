@@ -355,10 +355,10 @@
 													<div class="col-md-3">
 														<div class="radio-list">
 															<label>
-															<input type="radio" name="a211" value="YA" data-title="Ya"/>
+															<input type="radio" name="a211" value="1" data-title="Ya"/>
 															Ya </label>
 															<label>
-															<input type="radio" name="a211" value="TIDAK" data-title="Tidak"/>
+															<input type="radio" name="a211" value="0" data-title="Tidak"/>
 															Tidak </label>
 														</div>
 														<div id="form_gender_error">

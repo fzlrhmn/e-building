@@ -1,6 +1,47 @@
 <div class="page-content-wrapper">
 	<div class="page-content">
 		<div id="chart-kecamatan" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>
+								 No
+							</th>
+							<th>
+								 Kecamatan
+							</th>
+							<th>
+								 Jumlah
+							</th>
+							<th width="30">
+								 Option
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $i=1; foreach ($kecamatan as $item): ?>
+							<tr>
+								<td>
+									 <?php echo $i++ ?>
+								</td>
+								<td>
+									 <?php echo $item['kecamatan'] ?>
+								</td>
+								<td>
+									 <?php echo $item['jumlah'] ?>
+								</td>
+								<td>
+									 <a href="<?php echo base_url('index.php/laporan/kelurahan/'.$item['nomor']) ?>" class="btn btn-info btn-sm">Detail</a>
+								</td>
+							</tr>
+						<?php endforeach ?>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
 

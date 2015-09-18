@@ -13,31 +13,121 @@
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <meta content="" name="description"/>
 <meta content="" name="author"/>
+<link rel="shortcut icon" href="favicon.ico"/>
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url(); ?>assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/> -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url(); ?>assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url(); ?>assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
+
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/global/plugins/select2/select2.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
 <!-- END PAGE LEVEL STYLES -->
+
 <!-- BEGIN THEME STYLES -->
 <link href="<?php echo base_url(); ?>assets/global/css/components-md.css" id="style_components" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url(); ?>assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url(); ?>assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
-<link id="style_color" href="<?php echo base_url(); ?>assets/admin/layout/css/themes/light2.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url(); ?>assets/admin/layout/css/themes/light2.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url(); ?>assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
+<link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css"/>
+<link href="<?php echo base_url(); ?>assets/global/css/fixedHeader.dataTables.min.css"rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
-<link rel="shortcut icon" href="favicon.ico"/>
+
+
+
 <script src="<?php echo base_url() ?>assets/global/plugins/jquery.min.js"></script>
 <script>
 	var root = '<?php echo base_url() ?>';
 </script>
+
+<!-- BEGIN PAGE MAPS -->
+<link rel="stylesheet" href="<?php echo base_url(); ?>map_assets/css/leaflet.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>map_assets/css/L.Control.Locate.min.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>map_assets/css/style_locate.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>map_assets/css/leaflet.label.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>map_assets/css/leaflet.extra-markers.css" />
+<script src="<?php echo base_url(); ?>map_assets/js/leaflet.js"></script>
+<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+<script src="<?php echo base_url(); ?>map_assets/js/google-leaf.js"></script>
+<script src="<?php echo base_url(); ?>map_assets/js/L.Control.Locate.js" ></script>
+<script src="<?php echo base_url(); ?>map_assets/js/leaflet.label.js" ></script>
+<script src="<?php echo base_url(); ?>map_assets/js/letterIcon.js" ></script>
+<script src="<?php echo base_url(); ?>map_assets/js/leaflet.extra-markers.js"></script>
+<!-- END PAGE MAPS -->
+
+<style type="text/css">
+	.gmnoprint a, .gmnoprint span {
+	    display:none;
+	}
+	.gmnoprint div {
+	    background:none !important;
+	}
+	a[href^="http://maps.google.com/maps"]{display:none !important}
+	.leaflet-control-command
+	{
+	    width: 200px;
+	    display: block;
+	    padding: 10px;
+	    /*border-radius: 4px;*/
+	    /*-webkit-border-radius: 4px;*/
+	    /*-moz-border-radius: 4px;*/
+	    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
+	    cursor: auto;
+	    text-align: left;
+	    background-color: #FFFFFF;
+	}
+
+	.leaflet-control-command-interior:hover
+	{
+	    background-color: #F4F4F4;
+	}
+
+	.info-legend
+	{
+	    background-color: #FFFFFF;
+	    padding: 10px;
+	    display: block;
+	    border-radius: 4px;
+	    -webkit-border-radius: 4px;
+	    -moz-border-radius: 4px;
+	    line-height: 18px;
+	    color: #555;
+	}
+
+	.map{
+	  opacity:    0.3; 
+	  background: #000000; 
+	  width:      100%;
+	  height:     600px; 
+	  z-index:    10;
+	  top:        0; 
+	  left:       0; 
+	  position:   fixed; 
+	}
+
+	.info-legend i {
+	    width: 18px;
+	    height: 18px;
+	    float: left;
+	    margin-right: 8px;
+	    opacity: 0.7;
+	}
+
+	.label{
+	  position:  absolute;
+	  background-color: transparent;
+	  font-size: 14px;
+	}
+
+	.text-labels{
+		width: 60px !important;
+	}
+</style>
 </head>
 
 <body class="page-md page-header-fixed page-sidebar-fixed page-quick-sidebar-over-content ">
@@ -121,41 +211,24 @@
 					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
 					<!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
 					<!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
-					<form class="sidebar-search " action="extra_search.html" method="POST">
-						<a href="javascript:;" class="remove">
-						<i class="icon-close"></i>
-						</a>
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search...">
-							<span class="input-group-btn">
-							<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
-							</span>
-						</div>
-					</form>
+					
 					<!-- END RESPONSIVE QUICK SEARCH FORM -->
 				</li>
-				<li class="start ">
-					<a href="javascript:;">
+				<li>
+					<a href="<?php echo base_url('index.php/home') ?>">
 					<i class="icon-home"></i>
-					<span class="title">Sistem</span>
-					<span class="arrow "></span>
+					<span class="title">Dashboard</span>
 					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="data-pengguna.php">
-							<i class="icon-bar-chart"></i>
-							Data Pengguna</a>
-						</li>
-						<li>
-							<a href="setting-password.php">
-							<i class="icon-bulb"></i>
-							Setting Password</a>
-						</li>
-					</ul>
+				</li>
+				<li>
+					<a href="<?php echo base_url('index.php/maps') ?>">
+					<i class="icon-layers"></i>
+					<span class="title">Peta</span>
+					</a>
 				</li>
 				<li>
 					<a href="javascript:;">
-					<i class="icon-settings"></i>
+					<i class="icon-note"></i>
 					<span class="title">Master</span>
 					<span class="selected"></span>
 					<span class="arrow"></span>
@@ -181,7 +254,7 @@
 				</li>
 				<li>
 					<a href="javascript:;">
-					<i class="icon-folder"></i>
+					<i class="icon-folder-alt"></i>
 					<span class="title">Data IMB</span>
 					<span class="selected"></span>
 					<span class="arrow"></span>
@@ -219,16 +292,27 @@
 							Kecamatan</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('index.php/laporan/kelurahan') ?>">
-							Kelurahan</a>
-						</li>
-						<li>
 							<a href="<?php echo base_url('index.php/laporan/imb') ?>">
 							IMB</a>
+						</li>					
+					</ul>
+				</li>
+				<li class="start ">
+					<a href="javascript:;">
+					<i class="icon-settings"></i>
+					<span class="title">Pengaturan</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="data-pengguna.php">
+							<i class="icon-bar-chart"></i>
+							Data Pengguna</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('index.php/laporan/cagar_budaya') ?>">
-							Cagar Budaya</a>
+							<a href="setting-password.php">
+							<i class="icon-bulb"></i>
+							Setting Password</a>
 						</li>
 					</ul>
 				</li>

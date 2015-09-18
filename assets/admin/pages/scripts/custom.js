@@ -8,6 +8,7 @@ var Custom = function () {
     var table_bangunan = function() {
         // begin first table
         var table = $('#table_bangunan').DataTable({
+            // fixedHeader: true,
             "processing": true,
             "ajax":root + "index.php/bangunan/ajax",
             "columns": [
@@ -21,7 +22,7 @@ var Custom = function () {
                         { "data": "alamat_bangunan", "orderable": false },
                         { "data": null,
                             "render" : function (data) {
-                                return '<a href="'+ root + 'index.php/bangunan/' + data.id +'" class="btn btn-xs blue"><i class="fa fa-pencil"></i> Edit</a><br><br><a href="'+ root + 'index.php/bangunan/delete/' + data.id +'" onclick="return confirm(\'Apakah Anda Yakin Untuk Menghapus Data Ini?\')" class="btn btn-xs red"><i class="fa fa-trash"></i> Hapus</a>';
+                                return '<a href="'+ root + 'index.php/bangunan/detail/' + data.id +'" class="btn btn-xs yellow"><i class="fa fa-info"></i> Detail</a><br><br><a href="'+ root + 'index.php/bangunan/' + data.id +'" class="btn btn-xs blue"><i class="fa fa-pencil"></i> Edit</a><br><br><a href="'+ root + 'index.php/bangunan/delete/' + data.id +'" onclick="return confirm(\'Apakah Anda Yakin Untuk Menghapus Data Ini?\')" class="btn btn-xs red"><i class="fa fa-trash"></i> Hapus</a>';
                             }
                             , "orderable": false
                         }
@@ -73,6 +74,7 @@ var Custom = function () {
                         $('#table_bangunan').DataTable().destroy();
                         $('#table_bangunan tbody').empty();
                         $('#table_bangunan').DataTable({
+                            // fixedHeader: true,
                             "processing": true,
                             "data": dataSet.data,
                             "columns": [
@@ -85,8 +87,8 @@ var Custom = function () {
                                         { "data": "a21", "orderable": true },
                                         { "data": "alamat_bangunan", "orderable": false },
                                         { "data": null,
-                                            "render" : function (dataSet) {
-                                                return '<a href="'+ root + 'index.php/bangunan/' + dataSet.id +'" class="btn btn-xs blue"><i class="fa fa-pencil"></i> Edit</a><br><br><a href="'+ root + 'index.php/bangunan/delete/' + dataSet.id +'" onclick="return confirm(\'Apakah Anda Yakin Untuk Menghapus Data Ini?\')" class="btn btn-xs red"><i class="fa fa-trash"></i> Hapus</a>';
+                                            "render" : function (data) {
+                                                return '<a href="'+ root + 'index.php/bangunan/detail/' + data.id +'" class="btn btn-xs yellow"><i class="fa fa-info"></i> Detail</a><br><br><a href="'+ root + 'index.php/bangunan/' + data.id +'" class="btn btn-xs blue"><i class="fa fa-pencil"></i> Edit</a><br><br><a href="'+ root + 'index.php/bangunan/delete/' + data.id +'" onclick="return confirm(\'Apakah Anda Yakin Untuk Menghapus Data Ini?\')" class="btn btn-xs red"><i class="fa fa-trash"></i> Hapus</a>';
                                             }
                                             , "orderable": false
                                         }

@@ -1,6 +1,47 @@
 <div class="page-content-wrapper">
 	<div class="page-content">
 		<div id="chart-peruntukan-tanah" style="width: 100%; height: 400px; background-color: #FFFFFF;"></div>
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>
+								 No
+							</th>
+							<th>
+								 Peruntukan Tanah
+							</th>
+							<th>
+								 Jumlah
+							</th>
+							<th>
+								 Option
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $i=1; foreach ($peruntukan_tanah as $item): ?>
+							<tr>
+								<td>
+									 <?php echo $i++ ?>
+								</td>
+								<td>
+									 <?php echo $item['nama'] ?>
+								</td>
+								<td>
+									 <?php echo $item['jumlah'] ?>
+								</td>
+								<td>
+									 
+								</td>
+							</tr>
+						<?php endforeach ?>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
 

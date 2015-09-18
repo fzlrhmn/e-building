@@ -48,9 +48,35 @@ class Bangunan extends CI_Controller {
 		}
 	}
 
+	/**
+	 * @param  boolean
+	 * @return 
+	 */
+	public function detail($id_bangunan=false)
+	{
+		$data['bangunan'] = $this->model_bangunan->get_bangunan_detail($id_bangunan);
+		
+		if ( count($data['bangunan']) != 0 ) {
+			for ($i=0; $i < count($data['bangunan']); $i++) { 
+				$data['bangunan'][$i]['kelurahan'] = null;
+				$nomor_kelurahan 	= $data['bangunan'][$i]['a25'];
+				$id_kecamatan 		= $data['bangunan'][$i]['a26']; //id kecamatan
+				$kelurahan 			= $this->model_bangunan->get_kelurahan($id_kecamatan, $nomor_kelurahan);
+				$data['bangunan'][$i]['kelurahan'] = $kelurahan->kelurahan;
+			}
+			// $this->output->set_content_type('application/json')->set_output(json_encode($data));
+			$this->load->view('template/header');
+			$this->load->view('content/bangunan/detail_bangunan', $data);
+			$this->load->view('template/footer');
+		}
+		else{
+			show_404();
+		}
+	}
+
 	public function datatables_bangunan()
 	{
-		$data['data'] = $this->model_bangunan->get_bangunan($id_bangunan);
+		$data['data'] = $this->model_bangunan->get_bangunan();
 		for ($i=0; $i < count($data['data']); $i++) { 
 			$data['data'][$i]['kelurahan'] = null;
 			$nomor_kelurahan 	= $data['data'][$i]['a25'];
@@ -60,7 +86,7 @@ class Bangunan extends CI_Controller {
 			$data['data'][$i]['no'] = $i+1;
 			$data['data'][$i]['kelurahan'] = $kelurahan->kelurahan;
 			$data['data'][$i]['alamat'] = $data['data'][$i]['a1a3'].' RT '.$data['data'][$i]['a1a4'].' RW '.$data['data'][$i]['a1a5'].' Kelurahan '.$data['data'][$i]['a1a6'].' Kecamatan '.$data['data'][$i]['a1a7'];
-			$data['data'][$i]['alamat_bangunan'] = $data['data'][$i]['a22'].' Kecamatan '.$data['bangunan'][$i]['kecamatan'];
+			$data['data'][$i]['alamat_bangunan'] = $data['data'][$i]['a22'].' Kecamatan '.$data['data'][$i]['kecamatan'];
 			unset($data['data'][$i]['a1a3']);
 			unset($data['data'][$i]['a1a4']);
 			unset($data['data'][$i]['a1a5']);
@@ -432,15 +458,20 @@ class Bangunan extends CI_Controller {
 	}
 
 	//gembel
-	public function kawasan_geo()
+	public function kawasan_geo($nama_pemilik=false)
 	{
 		# Build GeoJSON feature collection array
 		$geojson = array(
 		   'type'      => 'FeatureCollection',
 		   'features'  => array()
 		);
+		if($nama_pemilik !=false){
+					$data['bangunan'] = $this->model_bangunan->get_kawasan_geo_by_nama($nama_pemilik);
 
-		$data['bangunan'] = $this->model_bangunan->get_kawasan_geo();
+		}else{
+					$data['bangunan'] = $this->model_bangunan->get_kawasan_geo();
+
+		}
 
 		foreach ($data['bangunan'] as $item) {
 			$properties = $item;
@@ -456,6 +487,17 @@ class Bangunan extends CI_Controller {
 		    array_push($geojson['features'], $feature);
 		}
 		$this->output->set_content_type('application/json')->set_output(json_encode($geojson));
+	}
+	//gembel
+	public function cari_nama($nama_pemilik=false)
+	{
+		if($nama_pemilik !=false){
+					$data['bangunan'] = $this->model_bangunan->get_kawasan_geo_by_nama($nama_pemilik);
+
+		}
+
+		
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
 	}
 }
 

@@ -1,4 +1,4 @@
-BEGIN CONTENT -->
+<!-- BEGIN CONTENT -->
 	<div class="page-content-wrapper">
 		<div class="page-content">
 			<!-- BEGIN PAGE HEADER-->
@@ -306,7 +306,7 @@ BEGIN CONTENT -->
 
 													<label class="control-label col-md-3">Jumlah Lantai Bangunan </label>
 													<div class="col-md-2">
-														<input type="number" min="1" class="form-control" name="a214" value="<?php echo $bangunan->a214 ?>" />
+														<input class="form-control" name="a214" value="<?php echo $bangunan->a214 ?>" />
 													</div>
 												</div>
 												<div class="form-group">

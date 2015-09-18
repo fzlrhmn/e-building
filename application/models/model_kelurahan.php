@@ -22,6 +22,7 @@ class Model_kelurahan extends CI_Model {
 		if ($id_kecamatan!=false) {
 			$this->db->where('no_kecamatan', $id_kecamatan);
 		}
+		$this->db->order_by('kelurahan', 'asc');
 		$query = $this->db->get();
 		$result = $query->result_array();
 		return $result;

@@ -17,14 +17,31 @@ class Model_bangunan extends CI_Model {
 
 	public function get_bangunan_edit($id_bangunan=false)
 	{
-		$this->db->select('bangunan.*, kecamatan.kecamatan');
+		$this->db->select('bangunan.*, kecamatan.kecamatan, tanah.nama as penggunaan_tanah, ruang.nama as penggunaan_ruang');
 		$this->db->from('bangunan');
 		if ($id_bangunan!=false) {
 			$this->db->where('bangunan.id', $id_bangunan);
 		}
 		$this->db->join('kecamatan', 'bangunan.a26 = kecamatan.nomor', 'left');
+		$this->db->join('tanah', 'bangunan.peruntukan_tanah = tanah.id', 'left');
+		$this->db->join('ruang', 'bangunan.peruntukan_ruang = ruang.id', 'left');
 		$query = $this->db->get();
 		$result = $query->row();
+		return $result;
+	}
+
+	public function get_bangunan_detail($id_bangunan=false)
+	{
+		$this->db->select('bangunan.*, kecamatan.kecamatan, tanah.nama as penggunaan_tanah, ruang.nama as penggunaan_ruang');
+		$this->db->from('bangunan');
+		if ($id_bangunan!=false) {
+			$this->db->where('bangunan.id', $id_bangunan);
+		}
+		$this->db->join('kecamatan', 'bangunan.a26 = kecamatan.nomor', 'left');
+		$this->db->join('tanah', 'bangunan.peruntukan_tanah = tanah.id', 'left');
+		$this->db->join('ruang', 'bangunan.peruntukan_ruang = ruang.id', 'left');
+		$query = $this->db->get();
+		$result = $query->result_array();
 		return $result;
 	}
 
@@ -130,6 +147,17 @@ class Model_bangunan extends CI_Model {
 		return $result->total;
 	}
 
+	public function report_bangunan_kelurahan( $kecamatan, $kelurahan )
+	{
+		$this->db->select('count(bangunan.id) as total');
+		$this->db->from('bangunan');
+		$this->db->where('a26' , $kecamatan);
+		$this->db->where('a25' , $kelurahan);
+		$query = $this->db->get();
+		$result = $query->row();
+		return $result->total;
+	}
+
 	//gembel
 	public function get_bangunan_by_rtrw($kecamatan=false, $kelurahan=false, $rw=false, $rt=false)
 	{
@@ -161,6 +189,28 @@ class Model_bangunan extends CI_Model {
 		// if($id_kecamatan!=""){
 		// 	$this->db->where('nomor', $id_kecamatan);
 		// }
+		$query = $this->db->get();
+		$result = $query->result_array();
+		return $result;
+	}
+	public function get_kawasan_geo_by_nama($nama_pemilik)
+	{
+		$this->db->select('bangunan.a1a2 as nama, x(centroid(kode_administrasi_geo.the_geom)) as xe, y(centroid(kode_administrasi_geo.the_geom)) as ye, kode_administrasi_geo.id as id, kode_administrasi_geo.kecamatan as kecamatan, kode_administrasi_geo.kelurahan as kelurahan, kode_administrasi_geo.rw as rw, kode_administrasi_geo.rt as rt');
+		$this->db->from('kode_administrasi_geo');
+		$this->db->join('bangunan', 'bangunan.a26 = kode_administrasi_geo.kecamatan and bangunan.a25 = kode_administrasi_geo.kelurahan and bangunan.a24 = kode_administrasi_geo.rw and bangunan.a23 = kode_administrasi_geo.rt', 'left');
+		
+		if($nama_pemilik!=""){
+			$this->db->like('bangunan.a1a2', $nama_pemilik);
+		}
+		$query = $this->db->get();
+		$result = $query->result_array();
+		return $result;
+	}
+
+	public function get_imb()
+	{
+		$this->db->select('distinct(a211) as imb');
+		$this->db->from('bangunan');
 		$query = $this->db->get();
 		$result = $query->result_array();
 		return $result;

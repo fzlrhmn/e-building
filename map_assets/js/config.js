@@ -1,0 +1,1 @@
+var root = 'http://localhost:8888/simba_solo_view'

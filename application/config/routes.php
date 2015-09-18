@@ -50,6 +50,7 @@ $route['logout'] 						= "login/logout";
 | -------------------------------------------------------------------------
 */
 $route['bangunan/(:num)'] 				= 'bangunan/index/$1';
+$route['bangunan/detail(:num)'] 		= 'bangunan/detail/$1';
 $route['bangunan/ajax'] 				= 'bangunan/datatables_bangunan';
 $route['bangunan/nomor/(:num)/(:num)'] 	= 'bangunan/get_nomor_bangunan/$1/$2';
 $route['bangunan/submit'] 				= 'bangunan/submit';

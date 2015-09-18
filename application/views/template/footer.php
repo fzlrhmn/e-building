@@ -37,7 +37,8 @@
 <script src="<?php echo base_url() ?>assets/global/plugins/select2/select2.min.js"></script>
 <script src="<?php echo base_url() ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script src="<?php echo base_url() ?>assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url() ?>assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+<script src="<?php echo base_url() ?>assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>Z
+<script src="<?php echo base_url(); ?>assets/global/scripts/dataTables.fixedHeader.min.js"/></script>
 <script src="<?php echo base_url() ?>assets/global/plugins/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->

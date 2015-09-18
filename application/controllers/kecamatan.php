@@ -16,6 +16,13 @@ class Kecamatan extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function get_kecamatan($id_kecamatan=false)
+	{
+		$data['kecamatan'] = $this->model_kecamatan->get_kecamatan($id_kecamatan);
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
+	
+	}
+
 	//gembel
 	public function geo($id_kecamatan=false)
 	{

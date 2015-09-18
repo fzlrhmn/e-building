@@ -9,9 +9,20 @@ class Model_kecamatan extends CI_Model {
 		if ($id_kecamatan!=false) {
 			$this->db->where('id', $id_kecamatan);
 		}
+		$this->db->order_by('kecamatan', 'asc');
 		$query = $this->db->get();
 		$result = $query->result_array();
 		return $result;
+	}
+
+	public function get_nama_kecamatan($id_kecamatan)
+	{
+		$this->db->select('kecamatan');
+		$this->db->from('kecamatan');
+		$this->db->where('nomor', $id_kecamatan);
+		$query = $this->db->get();
+		$result = $query->row();
+		return $result->kecamatan;
 	}
 
 	public function get_kecamatan_geo($id_kecamatan = false)

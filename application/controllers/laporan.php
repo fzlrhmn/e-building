@@ -59,6 +59,18 @@ class Laporan extends CI_Controller {
 	 */
 	public function imb()
 	{
+		$data['imb'] = $this->model_bangunan->get_imb();
+		for ($i=0; $i < count( $data['imb'] ); $i++) { 
+			if ( $data['imb'][$i]['imb'] == 1 ) {
+				$data['imb'][$i]['keterangan'] = 'Ya';
+			}
+			else{
+				$data['imb'][$i]['keterangan'] = 'Tidak';
+			}
+
+			$data['imb'][$i]['jumlah'] = $this->model_bangunan->report_bangunan('a211', $data['imb'][$i]['imb']);
+		}
+		// $this->output->set_content_type('application/json')->set_output(json_encode($data));
 		$this->load->view('template/header');
 		$this->load->view('content/laporan/imb', $data);
 		$this->load->view('template/footer');
@@ -67,10 +79,16 @@ class Laporan extends CI_Controller {
 	/**
 	 * @return json
 	 */
-	public function cagar_budaya()
+	public function kelurahan($id_kelurahan)
 	{
+		$data['nama_kecamatan'] = $this->model_kecamatan->get_nama_kecamatan($id_kelurahan);
+		$data['kelurahan'] 		= $this->model_kelurahan->get_kelurahan_by_kecamatan($id_kelurahan);
+		for ($i=0; $i < count( $data['kelurahan'] ); $i++) { 
+			$data['kelurahan'][$i]['jumlah'] = $this->model_bangunan->report_bangunan_kelurahan($data['kelurahan'][$i]['no_kecamatan'],$data['kelurahan'][$i]['nomor']);
+		}
+		// $this->output->set_content_type('application/json')->set_output(json_encode($data));
 		$this->load->view('template/header');
-		$this->load->view('content/laporan/cagar_budaya', $data);
+		$this->load->view('content/laporan/kelurahan', $data);
 		$this->load->view('template/footer');
 	}
 

@@ -39,14 +39,12 @@
 			],
 			"titles": [],
 			"dataProvider": [
-				{
-					"category": "Ya",
-					"jumlah": 8
-				},
-				{
-					"category": "Tidak",
-					"jumlah": 6
-				}
+				<?php foreach ($imb as $item): ?>
+					{
+						"category": "<?php echo $item['keterangan'] ?>",
+						"jumlah": <?php echo $item['jumlah'] ?>
+					},
+				<?php endforeach ?>
 			]
 		}
 	);
